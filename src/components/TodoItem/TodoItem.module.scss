@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  align-items: center;
+  column-gap: 0.7rem;
+  cursor: pointer;
+}
+
+.hiddenCheckbox:checked {
+  & ~ .checkbox {
+    border-color: var(--clr-blue);
+    background-color: var(--clr-blue);
+
+    svg {
+      polyline {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+
+  & ~ .content {
+    text-decoration: line-through;
+  }
+}
+
+.checkbox {
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 0.1rem solid var(--clr-gray-200);
+  border-radius: 0.4rem;
+  transition: all ease-in-out 250ms;
+
+  svg {
+    polyline {
+      stroke-dasharray: 23;
+      stroke-dashoffset: -23;
+      transition: 300ms stroke-dashoffset cubic-bezier(0.23, 1, 0.32, 1) 250ms;
+    }
+  }
+}
+
+.content {
+  flex: 1;
+  font-size: 1.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all ease-in-out 250ms;
+}
+
+.removeButton {
+  padding: 1rem;
+}
